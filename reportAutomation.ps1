@@ -20,7 +20,7 @@ Connect-MgGraph -Scopes "Mail.Read", "User.Read.All", 'Sites.ReadWrite.All', 'Fi
 $upn = '<<replace me with UPN>>'
 
 # Filter messages from EPM and those that are reports. Filter then where they are from the last 7 days. Change it to number of days you'd like to go back
-$dateFilter = $(Get-Date).AddDays(-1) 
+$dateFilter = $(Get-Date).AddDays(-7) 
 $reportMessages = Get-MgUserMessage -UserId $upn -Filter "from/emailAddress/address eq 'no-reply-ciem@microsoft.com' and contains(subject,'report')"  -All | Where-Object { $_.ReceivedDateTime -gt $dateFilter }
 
 $pattern = "\b(https?:\/\/[^\s]+download)\b.+?\b(All Files Zip)\b"
