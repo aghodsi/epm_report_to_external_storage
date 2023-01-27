@@ -198,7 +198,7 @@ $files = Get-FileName -InitialDirectory $dlFolder -WindowTitle 'Select downloade
 # SPO site where we are going to save the files to. Chang the below Search Query to match your SharePoint Site that you created
 $siteId = $(Get-MgSite -Search "<<replace me with site name>>" | Select-Object Id).Id
 #Add Days is for testing reasons. You can change it to test your folder creation
-$today = $(Get-Date).AddDays(-14).ToString('yyyy-MM-dd')
+$today = $(Get-Date).AddDays(0).ToString('yyyy-MM-dd')
 
 $now = $(Get-Date -Format 'HH_mm')
 $requestBody = @{
